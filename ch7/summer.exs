@@ -19,4 +19,7 @@ defmodule Summer do
   defp _max([head | tail], local) when head > local, do: _max(tail, head)
   defp _max([head | tail], local) when head <= local, do: _max(tail, local)
 
+  def caesar([head | tail], n) when head + n > ?z, do: [head + n - 26 | caesar(tail, n)]
+  def caesar([head | tail], n) when head + n < ?z, do: [head + n | caesar(tail, n)]
+  def caesar([], _n), do: []
 end
