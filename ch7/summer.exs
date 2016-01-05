@@ -13,4 +13,10 @@ defmodule Summer do
     l = map(list, func)
     sum(l)
   end
+
+  def max([head | tail]), do: _max(tail, head)
+  defp _max([], m), do: m
+  defp _max([head | tail], local) when head > local, do: _max(tail, head)
+  defp _max([head | tail], local) when head <= local, do: _max(tail, local)
+
 end
