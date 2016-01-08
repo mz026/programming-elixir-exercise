@@ -22,4 +22,7 @@ defmodule Summer do
   def caesar([head | tail], n) when head + n > ?z, do: [head + n - 26 | caesar(tail, n)]
   def caesar([head | tail], n) when head + n < ?z, do: [head + n | caesar(tail, n)]
   def caesar([], _n), do: []
+
+  def span(to, to), do: [to]
+  def span(from, to), do: [ from | span(from + 1, to) ]
 end
