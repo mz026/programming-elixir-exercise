@@ -4,4 +4,11 @@ defmodule MyEnum do
     func.(head) && all?(tail, func)
   end
 
+  def each([], _func), do: nil
+  def each list = [head|tail], func do
+    func.(head)
+    each(tail, func)
+    list
+  end
+
 end
