@@ -47,17 +47,12 @@ defmodule MyEnum do
     current
   end
 
-  def flatten([]) do
-    IO.puts "empty case"
-    []
-  end
+  def flatten([]), do: []
+
   def flatten([head|tail]) do
-    IO.puts "normal case. head: #{head}, tail: #{tail}"
     Enum.concat(flatten(head), flatten(tail))
   end
-  def flatten(el) do
-    IO.puts "element case. el: #{el}"
-    [ el ]
-  end
+
+  def flatten(el), do: [ el ]
 
 end
