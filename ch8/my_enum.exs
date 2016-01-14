@@ -35,4 +35,16 @@ defmodule MyEnum do
     { Enum.reverse(current_left), list }
   end
 
+  def take list, num do
+    Enum.reverse(_take(list, num))
+  end
+
+  defp _take list, num, current \\ []
+  defp _take([head|tail], num, current) when length(current) < num do
+    _take(tail, num, [head|current])
+  end
+  defp _take(_list, num, current) when length(current) >= num do
+    current
+  end
+
 end
